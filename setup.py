@@ -14,18 +14,18 @@ extras = {
 }
 
 setup(
-    name="package_name",
+    name="lgsm",
     version="0.1.0",
     author="John Franklin Crenshaw",
     author_email="jfc20@uw.edu",
-    description="Package description.",
+    description="Latent Galaxy SED Model",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     license="MIT",
-    url="http://github.com/jfcrenshaw/python-package",
+    url="http://github.com/jfcrenshaw/lgsm",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=["numpy"],
+    install_requires=["numpy", "jax"],
     extras_require=extras,
     classifiers=[
         "Programming Language :: Python :: 3",
