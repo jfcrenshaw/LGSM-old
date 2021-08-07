@@ -25,7 +25,7 @@ setup(
     url="http://github.com/jfcrenshaw/lgsm",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=["numpy", "jax"],
+    install_requires=["elegy", "jax", "numpy", "optax", "sncosmo"],
     extras_require=extras,
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -34,7 +34,7 @@ setup(
         "Intended Audience :: Science/Research",
         "Topic :: Scientific/Engineering",
     ],
-    python_requires=">=3.6.0",
+    python_requires="<3.9.0",
     setup_requires=["pytest-runner"],
     tests_require=["pytest"],
 )
