@@ -13,6 +13,7 @@ class StandardScaler(elegy.Module):
     """Standard Scaler that ensures input dimensions have mean zero and unit variance."""
 
     def __init__(self, input_mean: np.ndarray, input_std: np.ndarray, **kwargs):
+        super().__init__()
         self.input_mean = input_mean
         self.input_std = input_std
 
@@ -77,7 +78,7 @@ class Encoder(elegy.Module):
         extrinsic_latents = elegy.nn.Linear(
             self.extrinsic_latent_size, name="linear_extrinsic"
         )(inputs)
-        amplitude = extrinsic_latents[:, 0]
+        amplitude = extrinsic_latents[:, 0, None]
 
         return {
             "intrinsic_latents": intrinsic_latents,
@@ -155,7 +156,7 @@ class VAE(elegy.Module):
 
         # decode into an SED
         sed = Decoder(
-            self.decoder_layers, self.sed_wave, self.sed_unit, self.batch_norm
+            self.decoder_layers, self.sed_bins, self.sed_unit, self.batch_norm
         )(**latents)
 
         return {**latents, **sed}
